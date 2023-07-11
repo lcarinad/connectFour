@@ -66,10 +66,10 @@ function findSpotForCol(x) {
 function placeInTable(y, x) {
   const gamePieceDiv = document.createElement("div");
   gamePieceDiv.classList.add("piece");
+  gamePieceDiv.classList.add("player1");
   let lastTableRow = 5;
   let column = x;
   let startingPiece = document.getElementById(`${lastTableRow}-${column}`);
-  startingPiece.innerHTML = "x";
   startingPiece.append(gamePieceDiv);
   // const tableDataPiece = document.querySelectorAll(`#${y}-${x}`);
   // htmlBoard.append(tableDataPiece);
