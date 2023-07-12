@@ -10,6 +10,7 @@ const HEIGHT = 6;
 
 let currPlayer = 1; // active player: 1 or 2
 let board = []; // array of rows, each row is array of cells  (board[y][x])
+let clickCount = 0;
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
@@ -66,8 +67,7 @@ function findSpotForCol(x) {
 function placeInTable(y, x) {
   const gamePieceDiv = document.createElement("div");
   gamePieceDiv.classList.add("piece");
-  gamePieceDiv.classList.add("player1");
-  gamePieceDiv.classList.add("player2");
+  gamePieceDiv.classList.add(`player${currPlayer}`);
   let lastTableRow = 5;
   let column = x;
   let startingPiece = document.getElementById(`${lastTableRow}-${column}`);
@@ -86,13 +86,12 @@ function handleClick(evt) {
   // get x from ID of clicked cell
   let x = +evt.target.id;
 
-  clickCount = 0;
   clickCount++;
-  if (clickCount % 2 !== 0) {
-    currPlayer = 1;
-    console.log(`This is player ${currPlayer}`);
-  } else {
-    currPlayer = 2;
+  //alternate between player 1 and player 2
+  clickCount % 2 !== 0 ? (currPlayer = 1) : (currPlayer = 2);
+  //check if game is over
+  if (clickCount > 42) {
+    alert("Game is over!");
   }
   // get next spot in column (if none, ignore click)
   var y = findSpotForCol(x);
