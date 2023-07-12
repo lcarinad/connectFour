@@ -29,7 +29,7 @@ function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
   let htmlBoard = document.querySelector("#board");
   //top row:add a table row for the top row the user can select and we are giving the top row an id of column-top.  a click event has been added to the top row.
-  //we are using a for loop to create the 7(width var) columns.  for each iteration, a headcell is being created with a td element, then the headcell is being given an id attribute named 'x'.  then we are appending the headcell to the top(the table row).  we should end up with 7 columns  each td is given an id attreibute named x.  then the top row and 7 columns are being appened to the htmlboard.
+  //we are using a for loop to create the 7(width var) columns.  for each iteration, a headcell is being created with a td element, then the headcell is being given an id attribute named 'x'.  then we are appending the headcell to the top(the table row).  we should end up with 7 columns  each td is given an id attreibute named x.  then the top row and 7 columns are being appended to the htmlboard.
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
@@ -67,12 +67,11 @@ function placeInTable(y, x) {
   const gamePieceDiv = document.createElement("div");
   gamePieceDiv.classList.add("piece");
   gamePieceDiv.classList.add("player1");
+  gamePieceDiv.classList.add("player2");
   let lastTableRow = 5;
   let column = x;
   let startingPiece = document.getElementById(`${lastTableRow}-${column}`);
   startingPiece.append(gamePieceDiv);
-  // const tableDataPiece = document.querySelectorAll(`#${y}-${x}`);
-  // htmlBoard.append(tableDataPiece);
 }
 
 /** endGame: announce game end */
@@ -85,8 +84,16 @@ function endGame(msg) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  var x = +evt.target.id;
+  let x = +evt.target.id;
 
+  clickCount = 0;
+  clickCount++;
+  if (clickCount % 2 !== 0) {
+    currPlayer = 1;
+    console.log(`This is player ${currPlayer}`);
+  } else {
+    currPlayer = 2;
+  }
   // get next spot in column (if none, ignore click)
   var y = findSpotForCol(x);
   if (y === null) {
