@@ -88,11 +88,14 @@ function placeInTable(y, x) {
 
   playerSquare.append(gamePieceDiv);
   //appending the child,playerSquare to the parent element, gamePieceDiv
+
   const resetBtn = document.querySelector("#resetBtn");
   resetBtn.addEventListener("click", function (e) {
     console.log("you clicked the reset btn");
 
     gamePieceDiv.remove();
+    currPlayer = currPlayer === 1 ? 2 : 1;
+    board[y][x] = undefined;
   });
 }
 
