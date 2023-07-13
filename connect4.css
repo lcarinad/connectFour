@@ -10,8 +10,24 @@ h1 {
   height: 50px;
   border: solid 1px #666;
 }
-
-
+button {
+  color: #fcff82;
+  background-color: #fd5959;
+  font-family: "Source Code Pro", monospace;
+  margin: 30px auto;
+  font-size: 24px;
+  line-height: 22px;
+  border: 1px solid #0c005a;
+  border-radius: 25px;
+  padding: 16px 24px;
+  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+}
+button:hover {
+  color: #fd5959;
+  cursor: pointer;
+  background-color: #fcff82;
+  transition: all 200ms ease;
+}
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
@@ -22,7 +38,7 @@ h1 {
   border-radius: 100px;
 }
 .player1 {
-  background-color: #afc5ff;
+  background-color: #007cb9;
 }
 .player2 {
   background-color: #fd5959;

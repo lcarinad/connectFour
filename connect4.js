@@ -105,7 +105,7 @@ function endGame(msg) {
   let timer = setInterval(function () {
     alert(msg);
     clearInterval(timer);
-  }, 1000);
+  }, 500);
 }
 
 /** handleClick: handle click of column top to play piece */
