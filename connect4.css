@@ -29,26 +29,19 @@ button:hover {
   background-color: #fcff82;
   transition: all 200ms ease;
 }
-/* pieces are div within game table cells: draw as colored circles */
 
 .piece {
-  /* TODO: make into circles */
   margin: 5px;
   width: 80%;
   height: 80%;
   border-radius: 100px;
 }
 .player1 {
-  /* background-color: #007cb9; */
   background-color: #0046c7;
 }
 .player2 {
-  /* background-color: #fd5959; */
   background-color: #d80002;
 }
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
-
-/* column-top is table row of clickable areas for each column */
 
 #column-top td {
   border: dashed 1px lightgray;
