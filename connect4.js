@@ -20,6 +20,8 @@ function makeBoard() {
   //creating board with for loop.  y represents the vertical axis on the connect 4 board.
   for (let y = 0; y < HEIGHT; y++) {
     board.push(Array.from({ length: WIDTH }));
+    console.log(board);
+    //creating array from width value which is set to undefined
   }
 }
 
@@ -72,16 +74,19 @@ function placeInTable(y, x) {
   const gamePieceDiv = document.createElement("div");
   gamePieceDiv.classList.add("piece");
   gamePieceDiv.classList.add(`player${currPlayer}`);
-  gamePieceDiv.style.top = -50 * (y + 2);
   let playerSquare = document.getElementById(`${y}-${x}`);
 
   playerSquare.append(gamePieceDiv);
+  //appending the child,playerSquare to the parent element, gamePieceDiv
 }
 
 /** endGame: announce game end */
-
+//set timer to announce message after final gamepiecediv is appended
 function endGame(msg) {
-  alert(msg);
+  let timer = setInterval(function () {
+    alert(msg);
+    clearInterval(timer);
+  }, 1000);
 }
 
 /** handleClick: handle click of column top to play piece */
