@@ -42,7 +42,12 @@ function makeHtmlBoard() {
     top.append(headCell);
   }
   htmlBoard.append(top);
-
+  // function makeResetBtn() {
+  //   const resetBtn = document.createElement("button");
+  //   resetBtn.innerText = "Reset";
+  //   resetBtn.append(document);
+  // }
+  // makeResetBtn();
   // TODO: add comment for this code
   //nested loops which are creating the remainder of the playing board. as long as y is less than 6, we increment y starting at 0.  for each loop create a table row.  then we have a nested loop for the columns.  as long as x is less than 7, we increment.  for each nested loop, we create a cell(td) which is being assigned an id of row number, which is set by the y loop-and x which is set by the x loop.  so 0-0, 0-1, 0-2, etc....  we are then appending the cells(td's) to the row(tr).  once the nest loops runs we are appending the rows to the htmlboard.
   for (let y = 0; y < HEIGHT; y++) {
