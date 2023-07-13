@@ -1,18 +1,19 @@
 /* game board table */
 h1 {
   text-shadow: 5px 5px 10px rgba(255, 156, 109, 0.4);
-  color: #ff9c6d;
+  color: #e8751a;
   font-family: "Monoton", cursive;
   font-size: 2.7rem;
 }
 #board td {
   width: 50px;
   height: 50px;
-  border: solid 1px #666;
+  border: solid 2px #005fda;
+  border-radius: 10px;
 }
 button {
   color: #fcff82;
-  background-color: #fd5959;
+  background-color: #d80002;
   font-family: "Source Code Pro", monospace;
   margin: 30px auto;
   font-size: 24px;
@@ -38,10 +39,12 @@ button:hover {
   border-radius: 100px;
 }
 .player1 {
-  background-color: #007cb9;
+  /* background-color: #007cb9; */
+  background-color: #0046c7;
 }
 .player2 {
-  background-color: #fd5959;
+  /* background-color: #fd5959; */
+  background-color: #d80002;
 }
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
 
