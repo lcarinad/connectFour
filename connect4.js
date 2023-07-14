@@ -1,8 +1,8 @@
 const WIDTH = 7;
 const HEIGHT = 6;
 
-let currPlayer = 1; 
-let board = []; 
+let currPlayer = 1;
+let board = [];
 
 function makeBoard() {
   for (let y = 0; y < HEIGHT; y++) {
@@ -37,10 +37,10 @@ function makeHtmlBoard() {
 function findSpotForCol(x) {
   for (let y = HEIGHT - 1; y >= 0; y--) {
     if (!board[y][x]) {
-      return y; 
+      return y;
     }
   }
-  return null; 
+  return null;
 }
 
 function placeInTable(y, x) {
@@ -50,14 +50,6 @@ function placeInTable(y, x) {
   let playerSquare = document.getElementById(`${y}-${x}`);
 
   playerSquare.append(gamePieceDiv);
-
-  const resetBtn = document.querySelector("#resetBtn");
-  resetBtn.addEventListener("click", function (e) {
-    console.log("you clicked the reset btn");
-    gamePieceDiv.remove();
-    currPlayer = currPlayer === 1 ? 2 : 1;
-    board[y][x] = undefined;
-  });
 }
 
 function endGame(msg) {
@@ -81,7 +73,7 @@ function handleClick(evt) {
   if (checkForWin()) {
     return endGame(`Player ${currPlayer} won!`);
   }
- 
+
   if (board.every((row) => row.every((cells) => cells))) {
     return endGame(`It's a tie!=`);
   }
@@ -91,7 +83,6 @@ function handleClick(evt) {
 
 function checkForWin() {
   function _win(cells) {
-
     return cells.every(
       ([y, x]) =>
         y >= 0 &&
