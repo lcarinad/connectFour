@@ -54,6 +54,7 @@ function makeHtmlBoard() {
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
+//finds the top epty row in a column(x) on board.  uses a loop that starts from bottom row(Height-1) and goes to top row (0).  for each row it checks if cell is empty.  if it's empty, it returns y
 function findSpotForCol(x) {
   for (let y = HEIGHT - 1; y >= 0; y--) {
     if (!board[y][x]) {
@@ -70,6 +71,7 @@ function placeInTable(y, x) {
   gamePieceDiv.classList.add("piece");
   gamePieceDiv.classList.add(`player${currPlayer}`);
   let playerSquare = document.getElementById(`${y}-${x}`);
+//selects cell where game piece should be appended👆🏾
 
   playerSquare.append(gamePieceDiv);
   //appending the child,playerSquare to the parent element, gamePieceDiv
@@ -139,7 +141,7 @@ function checkForWin() {
   }
 
   // TODO: read and understand this code. Add comments to help you.
-  //loops through each row(y) and column(x) of game board.  for each cell it create four arrays(horizontal, vertical, diagonal down righ, and diagonal down left).  checks for pattern to be true (ie a win).  if pattern matches, returns true tfor a  win.  if not, returns null
+  //loops through each row(y) and column(x) of game board.  for each cell it create four arrays(horizontal, vertical, diagonal down righ, and diagonal down left).  these are the win conditions.  checks for pattern to be true (ie a win).  if pattern matches, returns true tfor a  win.  if not, returns null
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
       let horiz = [
